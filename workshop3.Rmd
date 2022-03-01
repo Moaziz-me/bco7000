@@ -7,7 +7,24 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
 ```
+
+
+
+###data wrangling
+
+```{r}
+
+#data loading
+
+data<-read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-18/survey.csv")
+
+data%>%head()
+
+```
+
 
 ##### R Markdown
 

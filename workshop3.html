@@ -172,6 +172,33 @@ pre code {
 </div>
 
 
+<p>###data wrangling</p>
+<pre class="r"><code>#data loading
+
+data&lt;-read_csv(&quot;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-18/survey.csv&quot;)</code></pre>
+<pre><code>## Rows: 26232 Columns: 18
+## -- Column specification --------------------------------------------------------
+## Delimiter: &quot;,&quot;
+## chr (16): timestamp, how_old_are_you, industry, job_title, additional_contex...
+## dbl  (2): annual_salary, other_monetary_comp
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre class="r"><code>data%&gt;%head()</code></pre>
+<pre><code>## # A tibble: 6 x 18
+##   timestamp    how_old_are_you industry job_title additional_cont~ annual_salary
+##   &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;                    &lt;dbl&gt;
+## 1 4/27/2021 1~ 25-34           Educati~ Research~ &lt;NA&gt;                     55000
+## 2 4/27/2021 1~ 25-34           Computi~ Change &amp;~ &lt;NA&gt;                     54600
+## 3 4/27/2021 1~ 25-34           Account~ Marketin~ &lt;NA&gt;                     34000
+## 4 4/27/2021 1~ 25-34           Nonprof~ Program ~ &lt;NA&gt;                     62000
+## 5 4/27/2021 1~ 25-34           Account~ Accounti~ &lt;NA&gt;                     60000
+## 6 4/27/2021 1~ 25-34           Educati~ Scholarl~ &lt;NA&gt;                     62000
+## # ... with 12 more variables: other_monetary_comp &lt;dbl&gt;, currency &lt;chr&gt;,
+## #   currency_other &lt;chr&gt;, additional_context_on_income &lt;chr&gt;, country &lt;chr&gt;,
+## #   state &lt;chr&gt;, city &lt;chr&gt;, overall_years_of_professional_experience &lt;chr&gt;,
+## #   years_of_experience_in_field &lt;chr&gt;,
+## #   highest_level_of_education_completed &lt;chr&gt;, gender &lt;chr&gt;, race &lt;chr&gt;</code></pre>
 <div id="r-markdown" class="section level5">
 <h5>R Markdown</h5>
 <p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
