@@ -22,7 +22,7 @@ country<-survey%>%
   distinct(country)
 
 survey%>%count(country, sort = TRUE)
-
+ 
 survey_short<-survey%>%
   filter(
     country=="United States" |
