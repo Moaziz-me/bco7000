@@ -290,6 +290,14 @@ skim(survey)
 
 ```
 
+####Week4 workshop 7
+
+```{r}
+coffeeread_csv("https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/arabica_data_cleaned.csv")
+
+
+```
+
 
 ##### R Markdown
 
