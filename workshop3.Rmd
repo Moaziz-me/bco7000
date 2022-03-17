@@ -293,9 +293,47 @@ skim(survey)
 ####Week4 workshop 7
 
 ```{r}
-coffeeread_csv("https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/arabica_data_cleaned.csv")
+library(tidyverse)
+library(skimr)
 
+coffee_rating<-readr::read_csv("https://raw.githubusercontent.com/jldbc/coffee-quality-database/master/data/arabica_data_cleaned.csv")
 
+skim(coffee_rating)
+
+#to convert factors
+#option1
+coffee_rating<-coffee_rating%>%
+  mutate(
+    Species=as_factor(Species),
+    Country.of.Origin=as_factor(Country.of.Origin)
+  )
+
+#option2
+coffee_rating$Owner<-as_factor(coffee_rating$Owner)
+
+coffee_rating%>%count(Country.of.Origin, sort = T)
+
+coffee_rating<-coffee_rating%>%
+  mutate(Country.of.Origin.lumped=fct_lump(Country.of.Origin,n=14))
+
+coffee_rating%>%count(Country.of.Origin.lumped, sort = T)
+
+coffee_rating%>%
+  ggplot(
+    aes(Country.of.Origin.lumped, Total.Cup.Points))+geom_col()
+
+# a better way to do this is:
+
+coffee_rating%>%
+  mutate(
+    Country.of.Origin.lumped=fct_reorder(Country.of.Origin.lumped,Total.Cup.Points, sum, desc=TRUE)
+  )%>%
+  ggplot(
+    aes(Country.of.Origin.lumped, Total.Cup.Points)
+  )+geom_col() + 
+  coord_flip()
+
+coffee_rating%>%ggplot(aes(Total.Cup.Points))+geom_boxplot()
 ```
 
 
