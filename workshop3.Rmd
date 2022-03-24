@@ -337,6 +337,34 @@ coffee_rating%>%ggplot(aes(Total.Cup.Points))+geom_boxplot()
 ```
 
 
+#### week 3 workshop 7
+
+```{r}
+
+#fix and sort this later  with fctReorder & fctlamp
+
+coffee_rating%>%
+  filter(!is.na(Variety))%>%
+  ggplot(
+    aes(Variety)
+  )+geom_bar()+coord_flip()
+
+
+#
+ggplot(data = coffee_rating)+geom_histogram(mapping = aes(x=Total.Cup.Points, binwidth = 0.5))
+
+coffee_rating%>%ggplot(aes(x=Acidity, y=Aftertaste, colours=Species))+
+  geom_point(size=1.5)+
+  geom_smooth(colours="blue")
+
+
+results<-lm(Total.Cup.Points~altitude_mean_meters +Acidity, data=coffee_rating)
+summary(results)
+
+
+
+```
+
 ##### R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
